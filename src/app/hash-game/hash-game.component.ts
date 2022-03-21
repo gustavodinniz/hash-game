@@ -46,4 +46,12 @@ export class HashGameComponent implements OnInit {
   displayVictory(posX: number, posY: number): boolean {
     return this.hashGameService.displayVictory(posX, posY);
   }
+
+  get player(): number {
+    return this.hashGameService.player;
+  }
+
+  newGame(): void {
+    this.hashGameService.newGame();
+  }
 }
