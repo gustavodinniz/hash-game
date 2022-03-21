@@ -15,19 +15,35 @@ export class HashGameComponent implements OnInit {
     this.hashGameService.initialize();
   }
 
-  get showStart(): boolean{
+  get showStart(): boolean {
     return this.hashGameService.showStart;
   }
 
-  get showBoard(): boolean{
+  get showBoard(): boolean {
     return this.hashGameService.showBoard;
   }
 
-  get showFinal(): boolean{
+  get showFinal(): boolean {
     return this.hashGameService.showFinal;
   }
 
   startGame(): void {
     this.hashGameService.startGame();
+  }
+
+  play(posX: number, posY: number): void {
+    this.hashGameService.play(posX, posY)
+  }
+
+  displayX(posX: number, posY: number): boolean {
+    return this.hashGameService.displayX(posX, posY);
+  }
+
+  displayO(posX: number, posY: number): boolean {
+    return this.hashGameService.displayO(posX, posY);
+  }
+
+  displayVictory(posX: number, posY: number): boolean {
+    return this.hashGameService.displayVictory(posX, posY);
   }
 }
