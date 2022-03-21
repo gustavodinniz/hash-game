@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HashGameService} from "./shared/hash-game.service";
 
 @Component({
   selector: 'app-hash-game',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HashGameComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private hashGameService: HashGameService) {
   }
 
+  ngOnInit(): void {
+    this.hashGameService.initialize();
+  }
+
+  get showStart(): boolean{
+    return this.hashGameService.showStart;
+  }
+
+  get showBoard(): boolean{
+    return this.hashGameService.showBoard;
+  }
+
+  get showFinal(): boolean{
+    return this.hashGameService.showFinal;
+  }
+
+  startGame(): void {
+    this.hashGameService.startGame();
+  }
 }
